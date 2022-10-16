@@ -10,33 +10,21 @@ export default function KeysContainer({ screenValue, setScreenValue, isDarkModeO
             else if (keyValue === '>')
                 setScreenValue(screenValue.slice(0, -1))
             else
-                setScreenValue(prevValue => prevValue + keyValue)            
+                setScreenValue(prevValue => prevValue + keyValue)
         }
     }
 
     const darkMode = isDarkModeOn ? 'dark' : ''
 
+    const keyDataArr = [{ data: 'Clear', id: 'clear' }, { data: '/' }, { data: '*' }, { data: '7' }, { data: '8' }, { data: '9' }, { data: '-' }, { data: '4' }, { data: '5' }, { data: '6' }, { data: '+', id: "plus" }, { data: '1' }, { data: '2' }, { data: '3' }, { data: '>', id: "backspace" }, { data: '0' }, { data: '00' }, { data: '.' }, { data: '=', id: "equal" }]
+
+    const renderKeys = keyDataArr.map(key => {
+        return <span className={`keys ${darkMode}`}  id={key.id ? `${key.id}` : ''}>{key.data}</span>
+    })
+
     return (
         <div className='keysContainer screenKeysAnimation' onClick={handleClick}>
-            <span id="clear" className="keys">Clear</span>
-            <span className={`keys ${darkMode}`}>/</span>
-            <span className={`keys ${darkMode}`}>*</span>
-            <span className={`keys ${darkMode}`}>7</span>
-            <span className={`keys ${darkMode}`}>8</span>
-            <span className={`keys ${darkMode}`}>9</span>
-            <span className={`keys ${darkMode}`}>-</span>
-            <span className={`keys ${darkMode}`}>4</span>
-            <span className={`keys ${darkMode}`}>5</span>
-            <span className={`keys ${darkMode}`}>6</span>
-            <span id="plus" className={`keys ${darkMode}`}>+</span>
-            <span className={`keys ${darkMode}`}>1</span>
-            <span className={`keys ${darkMode}`}>2</span>
-            <span className={`keys ${darkMode}`}>3</span>
-            <span id="backspace" className={`keys ${darkMode}`}>&gt;</span>
-            <span className={`keys ${darkMode}`}>0</span>
-            <span className={`keys ${darkMode}`}>00</span>
-            <span className={`keys ${darkMode}`}>.</span>
-            <span id="equal" className={`keys ${darkMode}`}> =</span>
+            {renderKeys}
         </div>
     )
 }
