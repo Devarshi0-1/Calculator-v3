@@ -17,6 +17,15 @@
     }
 }
 
+@keyframes reactLogoAni {
+    from{
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 body {
     transition: background-color 500ms;
     overflow: hidden;
@@ -29,6 +38,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.container>img {
+    position: absolute;
+    z-index: 5;
+    width: 50%;
+    animation: reactLogoAni 10s linear infinite;
 }
 
 .colorMode {
@@ -87,6 +103,7 @@ body {
     transition: background-color 500ms, color 500ms, box-shadow 100ms;
     transform-style: preserve-3d;
     transform: perspective(1200px) rotateX(50deg) rotateY(20deg) rotateZ(-25deg) translateX(35px) translateY(0px) translateZ(0px);
+    z-index: 10;
 }
 
 .calculatorAnimation {
