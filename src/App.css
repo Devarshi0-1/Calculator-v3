@@ -18,9 +18,10 @@
 }
 
 @keyframes reactLogoAni {
-    from{
+    from {
         transform: rotate(0deg);
     }
+
     to {
         transform: rotate(360deg);
     }
@@ -104,6 +105,7 @@ body {
     transform-style: preserve-3d;
     transform: perspective(1200px) rotateX(50deg) rotateY(20deg) rotateZ(-25deg) translateX(35px) translateY(0px) translateZ(0px);
     z-index: 10;
+    background-color: white;
 }
 
 .calculatorAnimation {
@@ -236,4 +238,44 @@ body {
 .dark #plus:active,
 .dark #equal:active {
     box-shadow: inset 5px 5px 10px rgb(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width : 600px) {
+    .container>img {
+        z-index: 5;
+        width: 120%;
+    }
+
+    .calculator {
+        height: 555px;
+        width: 321px;
+    }
+
+    #screen {
+        height: 100px;
+        width: 281px;
+        margin: 20px 21px 0px 21px;
+    }
+
+    #screen::placeholder {
+        font-size: 30px;
+    }
+
+    .keys {
+        height: 60px;
+        width: 60px;
+        margin: 0;
+    }
+
+    .keyContainer {
+        margin: 12px;
+    }
+
+    #clear {
+        width: 133px;
+    }
+
+    #plus {
+        height: 60px;
+    }
 }
